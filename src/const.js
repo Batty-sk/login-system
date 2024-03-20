@@ -16,8 +16,4 @@ export const loginOrRegister = async (data, url) => {
     }
 };
 
-try {
-    await loginOrRegister(data, url);
-} catch (err) {
-    console.log(err);
-}
+

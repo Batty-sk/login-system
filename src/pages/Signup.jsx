@@ -12,7 +12,9 @@ const Signup = () => {
 
   const onSubmission = async (data) => {
     console.log( 'data ', data)
+
     try{
+
         await loginOrRegister(data,'register')
 
     }
