@@ -14,7 +14,7 @@ const Signup = () => {
     <Container className="d-flex align-items-center justify-content-center" style={{ height: '100vh' }}>
       <Row className="justify-content-center  ">
         <Col xs={12} md={12}>
-          <Form onSubmit={handleSubmit(onSubmission)} >
+          <Form onSubmit={handleSubmit(onSubmission)} style={{border:'1px solid black',padding:'20px'}} >
 
             <h2 className='text-center'>Sign Up</h2>
 
@@ -27,9 +27,9 @@ const Signup = () => {
                 <div className="input-group-prepend">
                   <span className="input-group-text"><BsPersonFill /></span>
                 </div>
-                <Form.Control type="text" placeholder="Username" {...register("username")} />
+                <Form.Control type="text" placeholder="Username" {...register("username",{required:true})} />
               </div>
-              {errors.username && <span>Name is required</span>}
+              {errors.username && <span className='text-danger'>Name is required</span>}
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
@@ -37,9 +37,9 @@ const Signup = () => {
                 <div className="input-group-prepend">
                   <span className="input-group-text"><BsLockFill /></span> 
                 </div>
-                <Form.Control type="password" placeholder="Password" {...register("password")} />
+                <Form.Control type="password" placeholder="Password" {...register("password",{required:true})} />
               </div>
-              {errors.password && <span>Password is required</span>}
+              {errors.password && <span className='text-danger'>Password is required</span>}
             </Form.Group>
 
             <div className='mt-4'>
