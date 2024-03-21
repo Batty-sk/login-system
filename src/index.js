@@ -14,6 +14,8 @@ const routes=createBrowserRouter([
     path:'/',
     element:<App/>, 
     children:[
+      {path:'/',
+    element:<Signup />},
       {
         path:'/signup',
         element:<Signup />,
@@ -26,6 +28,7 @@ const routes=createBrowserRouter([
         path:'/dashboard',
         element:<Dashboard/>
       }
+      
     ]
   }])
 root.render(
