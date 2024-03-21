@@ -1,8 +1,7 @@
 import { Table, Button } from 'react-bootstrap';
 import React from 'react';
-import { Table, Button } from 'react-bootstrap';
 
-const Table = () => {
+const Area = () => {
   return (
       <Table striped bordered hover>
         <thead>
@@ -40,4 +39,4 @@ const Table = () => {
   );
 };
 
-export default Table;
+export default Area;
