@@ -3,14 +3,18 @@ import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { BsPersonFill, BsLockFill, BsCalendar, BsEnvelopeFill } from 'react-icons/bs';
 import { loginOrRegister } from '../const';
+import { useNavigate } from 'react-router-dom';
+
 
 const Signup = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const navigate = useNavigate();  
 
   const onSubmission = async (data) => {
     console.log('data ', data);
     try {
       await loginOrRegister(data, 'register');
+      navigate('/dashboard')
     } catch (error) {
       console.log(error);
     }
@@ -47,7 +51,7 @@ const Signup = () => {
               {errors.email && <span className='text-danger'>Email is required</span>}
             </Form.Group>
 
-            <Form.Group controlId="formBasicDOB">
+            <Form.Group controlId="formBasicDOB" className='mb-3'>
               <div className="input-group d-flex align-items-center">
                 <div className="input-group-prepend">
                   <span className="input-group-text"><BsCalendar /></span>
@@ -55,6 +59,15 @@ const Signup = () => {
                 <Form.Control type="date" placeholder="Date of Birth" {...register("dob", { required: true })} />
               </div>
               {errors.dob && <span className='text-danger'>Date of Birth is required</span>}
+            </Form.Group>
+            <Form.Group controlId="formBasicPassword" className='mb-3'>
+              <div className="input-group d-flex align-items-center">
+                <div className="input-group-prepend">
+                  <span className="input-group-text"><BsLockFill /></span>
+                </div>
+                <Form.Control type="password" placeholder="Password" {...register("password", { required: true })} />
+              </div>
+              {errors.password && <span className='text-danger'>Password is required</span>}
             </Form.Group>
 
             <div className='mt-4 d-flex justify-content-center'>

@@ -2,17 +2,23 @@ import React from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { BsPersonFill, BsLockFill } from 'react-icons/bs';
-import { loginOrRegister } from '../const'; // Assuming loginOrRegister function is defined in '../const'
+import { loginOrRegister } from '../const'; 
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const navigate = useNavigate();  
 
   const onSubmission = async (data) => {
+
     console.log('data ', data);
     try {
       await loginOrRegister(data, 'login');
+      navigate('/dashboard')
     } catch (error) {
       console.log(error);
+      alert('Invalid username or password')
     }
   };
 

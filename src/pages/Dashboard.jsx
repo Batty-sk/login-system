@@ -11,9 +11,12 @@ const Dashboard = () => {
       const token = localStorage.getItem('token');
   
       if (token) {
-        axios.post('http://example.com/validateToken', { token })
-          .then(response => {
-            if (response.data.valid) {
+        axios.post('http://localhost:8000/validateToken', null,{
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        }).then(response => {
+            if (response.status == 200) {
               setIsAuthenticated(true);
             } else {
                 navigate('/login');
