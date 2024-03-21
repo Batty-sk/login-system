@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {createBrowserRouter,RouterProvider} from "react-router-dom";
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const routes=createBrowserRouter([
@@ -21,6 +22,10 @@ const routes=createBrowserRouter([
         path:'/login',
         element:<Login />,
       },
+      {
+        path:'/dashboard',
+        element:<Dashboard/>
+      }
     ]
   }])
 root.render(
