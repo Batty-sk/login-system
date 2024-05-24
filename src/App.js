@@ -1,11 +1,12 @@
 import './App.css';
-import Signup from './pages/Signup';
 import { Outlet } from 'react-router-dom';
+import Child from './Child';
 
 function App() {
   return (
   <>
   <Outlet />
+
   </>
   )
 }
